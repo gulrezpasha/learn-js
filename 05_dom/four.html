@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developement</title>
+</head>
+<body style="background-color: #d4cece; color:#ed2525;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langNAme){
+      const li=  document.createElement('li');
+      li.innerHTML=`${langNAme}`
+      document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("dart")
+    addLanguage("typescript")
+
+    function addoptilang(langNAme){
+     const li=    document.createElement('li');
+     li.appendChild(document.createTextNode(langNAme))
+      document.querySelector('.language').appendChild(li)
+
+    }
+    addoptilang('golang')
+
+    // edit
+    const secondlang=document.querySelector("li:nth-child(2)")
+    // secondlang.innerHTML="flutter"
+     const newli=document.createElement('li')
+     newli.textContent="flutter"
+     secondlang.replaceWith(newli);
+
+     const firstlang=document.querySelector("li:first-child")
+     firstlang.outerHTML='<li>Typescript</li>'
+
+    //  remove
+
+    const lastlang=document.querySelector('li:last-child')
+    lastlang.remove()
+</script>
+</html>
