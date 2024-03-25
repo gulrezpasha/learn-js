@@ -234,3 +234,55 @@ startOver.removeChild(p);
 });
 }
  ```
+```
+keyboard js code
+const insert=document.getElementById('insert')
+
+window.addEventListener('keydown',(e)=>{
+  insert.innerHTML=`
+  <div class='color'>
+  <table>
+  <tr>
+    <th>Key</th>
+    <th>Keycode</th>
+    <th>Code</th>
+  </tr>
+  <tr>
+    <td>${e.key===" "?"space":e.key}</td>
+    <td>${e.keyCode}</td>
+    <td>${e.code}</td>
+  </tr>
+  
+</table>
+  </div>
+  `;
+})
+
+```
+```
+random color js code
+
+//generate random color
+const randomcolor=function(){
+  const hex="0123456789ABCDEF";
+  let color='#';
+  for(let i=0;i<6;i++){
+    color+=hex[Math.floor(Math.random()*16)];
+  }
+  return color;
+
+};
+let intervalid;
+const startchangingcolor=function(){
+ intervalid= setInterval(changebgcolor,1000)
+ function changebgcolor(){
+  document.body.style.backgroundColor=randomcolor();
+ }
+};
+const stopchangingcolor=function(){
+clearInterval(intervalid);
+intervalid =null;
+};
+document.querySelector('#start').addEventListener('click',startchangingcolor);
+document.querySelector('#stop').addEventListener('click',stopchangingcolor);
+```
